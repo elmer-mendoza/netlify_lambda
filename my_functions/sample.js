@@ -7,8 +7,8 @@ require('dotenv').config()
 // .then(()=>console.log('MongoDB connected...'))
 // .catch(err=>console.log(err));
 
-// const mongoClient = new MongoClient('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority');
-const mongoClient = new MongoClient(process.env.MONGODB_URI);
+const mongoClient = new MongoClient('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority');
+// const mongoClient = new MongoClient(process.env.MONGODB_URI);
 
 const clientPromise = mongoClient.connect();
 
