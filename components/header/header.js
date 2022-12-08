@@ -9,7 +9,7 @@ const handleSample = async() => {
 }
 
   return (
-    <div className='header' onClick={() => handleSample()}>this is Header</div>
+    <div className='header' onClick={handleSample}>this is Header</div>
   )
 }
 
