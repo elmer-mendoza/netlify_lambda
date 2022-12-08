@@ -7,8 +7,10 @@ const clientPromise = mongoClient.connect();
 
 const handler = async (event) => {
     try {
-        const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+       
+        const collection = (await clientPromise).collection(process.env.MONGODB_COLLECTION);
+        // const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
+        // const collection = database.collection(process.env.MONGODB_COLLECTION);
         const results = await collection.find();
         return {
             statusCode: 200,
