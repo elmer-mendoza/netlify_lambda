@@ -3,7 +3,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 mongoose
-.connect(process.env.DATABASE_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>console.log('MongoDB connected...'))
 .catch(err=>console.log(err));
 
@@ -19,7 +19,7 @@ const handler = async (event) => {
         // const collection = (await clientPromise).collection(process.env.MONGODB_COLLECTION);
         // const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
         // const collection = database.collection(process.env.MONGODB_COLLECTION);
-        const database =  mongoose.connection;
+        const database =  mongoose.Connection;
         const collection = database.collection('resumeData');
         const results = await collection.find();
         return {
