@@ -11,8 +11,10 @@ const handler = async (event) => {
         const clientPromise =await mongoClient.connect();
         console.log("Connected")
         // const collection = (await clientPromise).collection(process.env.MONGODB_COLLECTION);
+        // const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
+        // const collection = database.collection(process.env.MONGODB_COLLECTION);
         const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+        const collection = database.collection('resumeData');
         const results = await collection.find();
         return {
             statusCode: 200,
