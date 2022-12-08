@@ -5,6 +5,7 @@ function Header() {
 
 const handleSample = async() => {
    const result = await fetch('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/sample')
+   console.log(result)
 }
 
   return (
