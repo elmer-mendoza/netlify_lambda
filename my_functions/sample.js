@@ -13,7 +13,7 @@ const handler = async (event) => {
         // const collection = (await clientPromise).collection(process.env.MONGODB_COLLECTION);
         // const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
         // const collection = database.collection(process.env.MONGODB_COLLECTION);
-        const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
+        const database = (await clientPromise).db('resumeDB');
         const collection = database.collection('resumeData');
         const results = await collection.find();
         return {
