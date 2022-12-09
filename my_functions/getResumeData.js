@@ -24,7 +24,7 @@ let getData = async( collection, query) => {
     return dbConnection
       .db(process.env.MONGODB_DATABASE)
       .collection(collection)
-      .find(query)
+      .find()
   } catch (error) {
     console.log(err)
   }finally{
