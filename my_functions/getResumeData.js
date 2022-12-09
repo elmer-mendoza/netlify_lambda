@@ -32,7 +32,7 @@ let getData = async( collection, query='') => {
   }
 }
 
-module.exports.handler = event => {
+exports.handler = async(event) => {
   
   // const data = getData(process.env.MONGODB_COLLECTION);
  
