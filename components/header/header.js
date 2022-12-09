@@ -16,8 +16,8 @@ console.log("result",result)
   return (
     <React.Fragment>
     <div className='header' onClick={()=>handleData('getResumeData')}>getResumeData</div>
-    <div className='header' onClick={()=>handleData('getReviews')}>getResumeData</div>
-    <div className='header' onClick={()=>handleData('postReview')}>getResumeData</div>
+    <div className='header' onClick={()=>handleData('getReviews')}>getReviews</div>
+    <div className='header' onClick={()=>handleData('postReview')}>postReview</div>
     </React.Fragment>
   )
 }
