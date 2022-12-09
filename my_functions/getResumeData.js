@@ -18,7 +18,7 @@
 const connectToMongoDB =require('../connectToMongoDB')
 
 let getData = async( collection, query) => {
-  const dbConnection = await connectToMongoDB(process.env.MONGODB_URI);
+  const dbConnection = await connectToMongoDB('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority');
   try {
     console.log('hey',dbConnection)
     return dbConnection.db('resumeData').collection('resumeData').find();
