@@ -9,7 +9,7 @@ const handleData = async(data) => {
   const result=  await axios(`https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/${data}` )
   //   await fetch('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/sample',{mode: 'no-cors'}
   //  ).then(r=>r.json()).then(d=>console.log("data",d))
-console.log("result",result)
+console.log(`result for ${data}`,result)
  
 }
 
