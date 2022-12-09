@@ -13,4 +13,4 @@ let connectToMongoDB = (uri) => {
   });
 };
 
-module.exports = connectToMongoDB
+module.exports = {connectToMongoDB}
