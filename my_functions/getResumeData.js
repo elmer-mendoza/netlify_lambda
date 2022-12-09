@@ -17,7 +17,7 @@
 
 const connectToMongoDB =require('../connectToMongoDB')
 
-let getData = async( collection, query='') => {
+let getData = async( collection, query) => {
   const dbConnection = await connectToMongoDB(process.env.MONGODB_URI);
   try {
     console.log('hey',dbConnection)
