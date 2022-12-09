@@ -1,8 +1,10 @@
 
 
 const handler = async (event) => {
- 
-        return { status: 200, body:({message:"hey"}) };
+  console.log("event",event)
+        return { status: 200, body:({message:"hey"}),headers:{
+            'Access-Control-Allow-Origin': '*'
+        } };
     
 }
 
