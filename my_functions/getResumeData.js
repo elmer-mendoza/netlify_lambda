@@ -27,10 +27,10 @@ let getData = async( collection, query) => {
     //   .collection(collection)
     //   .find(query)
   } catch (error) {
-    console.log(err)
-  }finally{
-    dbConnection.close()
-  }
+    console.log(err)}
+  // }finally{
+  //   dbConnection.close()
+  // }
 }
 
 exports.handler = async(event) => {
