@@ -4,9 +4,9 @@ import axios from 'axios'
 
 function Header() {
 
-const handleSample = async() => {
-  console.log("fetch")
-  const result=  await axios('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/resumeData' )
+const handleData = async(data) => {
+  
+  const result=  await axios(`https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/${data}` )
   //   await fetch('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/sample',{mode: 'no-cors'}
   //  ).then(r=>r.json()).then(d=>console.log("data",d))
 console.log("result",result)
@@ -14,7 +14,11 @@ console.log("result",result)
 }
 
   return (
-    <div className='header' onClick={handleSample}>this is Header</div>
+    <React.Fragment>
+    <div className='header' onClick={()=>handleData('getResumeData')}>getResumeData</div>
+    <div className='header' onClick={()=>handleData('getReviews')}>getResumeData</div>
+    <div className='header' onClick={()=>handleData('postReview')}>getResumeData</div>
+    </React.Fragment>
   )
 }
 
