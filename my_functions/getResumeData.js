@@ -34,11 +34,11 @@ let getData = async( collection, query='') => {
 
 exports.handler = async(event) => {
   
-  // const data = getData(process.env.MONGODB_COLLECTION);
+  const data = getData(process.env.MONGODB_COLLECTION);
  
   return {
     statusCode: 200,
-    body: JSON.stringify({message:"pogi"}),
-    // body: JSON.stringify(data),
+    // body: JSON.stringify({message:"pogi"}),
+    body: JSON.stringify(data),
   };
 };
