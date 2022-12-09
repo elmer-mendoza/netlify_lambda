@@ -2,7 +2,7 @@
 
 const handler = async (event) => {
   
-        return { statusCode: 200, body:({message:"hey"})};
+        return { statusCode: 200, body:JSON.stringify({message:"hey"})};
     
 }
 
