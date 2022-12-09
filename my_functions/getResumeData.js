@@ -20,6 +20,7 @@ const connectToMongoDB =require('../connectToMongoDB')
 let getData = async( collection, query='') => {
   const dbConnection = await connectToMongoDB(process.env.MONGODB_URI);
   try {
+    console.log('hey',dbConnection)
     return dbConnection
       .db(process.env.MONGODB_DATABASE)
       .collection(collection)
@@ -33,10 +34,11 @@ let getData = async( collection, query='') => {
 
 module.exports.handler = event => {
   
-  const data = getData(process.env.MONGODB_COLLECTION);
+  // const data = getData(process.env.MONGODB_COLLECTION);
  
   return {
     statusCode: 200,
-    body: JSON.stringify(data),
+    body: JSON.stringify({message:"pogi"}),
+    // body: JSON.stringify(data),
   };
 };
