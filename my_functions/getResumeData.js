@@ -24,7 +24,7 @@ let getData = async( collection, query) => {
     return dbConnection
       .db(process.env.MONGODB_DATABASE)
       .collection(collection)
-      .find()
+      .find(query)
   } catch (error) {
     console.log(err)
   }finally{
@@ -34,7 +34,7 @@ let getData = async( collection, query) => {
 
 exports.handler = async(event) => {
   
-  const data = await getData(process.env.MONGODB_COLLECTION);
+  const data = await getData(process.env.MONGODB_COLLECTION,{});
  
   return {
     statusCode: 200,
