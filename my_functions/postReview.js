@@ -1,16 +1,23 @@
-const connectToDatabase =require('../connectMongoDB')
+const connectToMongoDB =require('../connectToMongoDB')
 
-let getData = (db, table, query) => {
-  return db
-    .collection(table)
-    .findOne(query)
-    .close()
+let getData = async( collection, query='') => {
+  const dbConnection = await connectToMongoDB(process.env.MONGODB_URI);
+  try {
+    return dbConnection
+      .db(process.env.MONGODB_DATABASE)
+      .collection(collection)
+      .find(query)
+  } catch (error) {
+    console.log(err)
+  }finally{
+    dbConnection.close()
+  }
 }
 
-module.exports.handler = async event => {
-  const dbConnection = await connectToDatabase(process.env.MONGODB_URI,process.env.MONGODB_DATABASE,{});
-  const data = await getData(dbConnection, process.env.MONGODB_COLLECTION);
-
+module.exports.handler = event => {
+  
+  const data = getData('reviews');
+ 
   return {
     statusCode: 200,
     body: JSON.stringify(data),
