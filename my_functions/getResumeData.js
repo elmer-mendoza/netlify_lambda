@@ -21,10 +21,11 @@ let getData = async( collection, query) => {
   const dbConnection = await connectToMongoDB(process.env.MONGODB_URI);
   try {
     console.log('hey',dbConnection)
-    return dbConnection
-      .db(process.env.MONGODB_DATABASE)
-      .collection(collection)
-      .find(query)
+    return dbConnection.db('resumeData').collection('resumeData').find();
+    // return dbConnection
+    //   .db(process.env.MONGODB_DATABASE)
+    //   .collection(collection)
+    //   .find(query)
   } catch (error) {
     console.log(err)
   }finally{
