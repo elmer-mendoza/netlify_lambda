@@ -20,7 +20,8 @@ const connectToDatabase =require('../connectMongoDB')
 let getData = (db, table, query) => {
   return db
     .collection(table)
-    .findOne(query);
+    .find(query)
+    .close()
 }
 
 module.exports.handler = async event => {

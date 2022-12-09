@@ -1,17 +1,10 @@
 const connectToDatabase =require('../connectMongoDB')
 
-let getData =async (db, table, query) => {
-  
-  try{
-    return await db
+let getData = (db, table, query) => {
+    return  db
         .collection(table)
-        .find(query);
-  } catch (err) {
-    console.log(err); // output to netlify function log
-  } finally {
-    await db.close();
-  }
-  
+        .find(query)
+        .close()
 }
 
 module.exports.handler = async event => {
