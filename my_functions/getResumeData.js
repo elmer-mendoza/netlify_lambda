@@ -17,25 +17,19 @@
 
 const connectToMongoDB =require('../connectToMongoDB')
 
-let getData = async( collection, query) => {
-  const dbConnection = await connectToMongoDB('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority','resumeDB');
-  try {
-   
-    return dbConnection.collection('resumeData').find();
+let getData = async( db,collection, query) => {
+
+    return db.collection('resumeData').find();
     // return dbConnection
     //   .db(process.env.MONGODB_DATABASE)
     //   .collection(collection)
     //   .find(query)
-  } catch (error) {
-    console.log(err)}
-  // }finally{
-  //   dbConnection.close()
-  // }
+  
 }
 
 module.exports.handler = async(event) => {
-  
-  const data = await getData(process.env.MONGODB_COLLECTION,{});
+  const dbConnection = await connectToMongoDB('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority','resumeDB');
+  const data = await getData(dbConnection,process.env.MONGODB_COLLECTION,{});
  
   return {
     statusCode: 200,
