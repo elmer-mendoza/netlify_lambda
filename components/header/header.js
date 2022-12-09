@@ -6,7 +6,7 @@ function Header() {
 
 const handleSample = async() => {
   console.log("fetch")
-  const result=  await axios('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/sample' )
+  const result=  await axios('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/resumeData' )
   //   await fetch('https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/sample',{mode: 'no-cors'}
   //  ).then(r=>r.json()).then(d=>console.log("data",d))
 console.log("result",result)
