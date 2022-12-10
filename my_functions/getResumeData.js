@@ -43,7 +43,7 @@ let getData = async( db,collection, query) => {
   
 }
 
-module.exports.handler = async(event) => {
+ const handler = async(event) => {
   const dbConnection = await connectToMongoDB(process.env.MONGODB_URI,process.env.MONGODB_DATABASE);
   const data = await getData(dbConnection,process.env.MONGODB_COLLECTION,{});
  
@@ -53,3 +53,5 @@ module.exports.handler = async(event) => {
     body: JSON.stringify(data),
   };
 };
+
+module.exports = {handler}
