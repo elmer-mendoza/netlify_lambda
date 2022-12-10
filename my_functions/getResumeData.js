@@ -20,6 +20,7 @@
 'use strict';
 const mongo = require('mongodb');
 const { MongoClient } = mongo;
+require('dotenv').config();
 let db = null;
 
 let connectToMongoDB = (uri,dbName) => {
@@ -34,7 +35,7 @@ let connectToMongoDB = (uri,dbName) => {
 
 let getData = async( db,collection, query) => {
 
-    return db.collection('resumeData').find();
+    return await db.collection(collection).find(query);
     // return dbConnection
     //   .db(process.env.MONGODB_DATABASE)
     //   .collection(collection)
@@ -43,7 +44,7 @@ let getData = async( db,collection, query) => {
 }
 
 module.exports.handler = async(event) => {
-  const dbConnection = await connectToMongoDB('mongodb+srv://mdel_efm:Nov14151@mernshopping.jrbae.mongodb.net/?retryWrites=true&w=majority','resumeDB');
+  const dbConnection = await connectToMongoDB(process.env.MONGODB_URI,process.env.MONGODB_DATABASE);
   const data = await getData(dbConnection,process.env.MONGODB_COLLECTION,{});
  
   return {

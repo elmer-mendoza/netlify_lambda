@@ -6,7 +6,8 @@ function Header() {
 
 const handleData = async(data) => {
   
-  const result=  await axios(`https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/${data}` )
+  const result=  await axios(`/${data}` )
+  // const result=  await axios(`https://lustrous-crepe-401a2c.netlify.app/.netlify/functions/${data}` )
 
 console.log(`result for ${data}`,result)
  
