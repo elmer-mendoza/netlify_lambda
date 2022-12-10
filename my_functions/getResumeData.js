@@ -35,7 +35,7 @@ let connectToMongoDB = (uri,dbName) => {
 
 let getData = async( db,collection, query) => {
 
-    return await db.collection(collection).find(query);
+    return await db.collection(collection).find(query).toArray();
     // return dbConnection
     //   .db(process.env.MONGODB_DATABASE)
     //   .collection(collection)
